@@ -1,0 +1,20 @@
+{
+  "name": "EN-BOT-Adventure",
+  "version": "0.1",
+  "description": "FMST 398 Gaming and Justice",
+  "author": "Isabelle, Palmer, and Reed",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/poph55/EN-BOT-Adventure"
+  },
+  "main": "gulpfile.js",
+  "devDependencies": {
+    "babel-preset-minify": "^0.5.1",
+    "gulp": "^4.0.2",
+    "gulp-babel": "^8.0.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-dart-sass": "^1.0.2",
+    "include-media": "^1.4.9",
+    "jquery": "^3.6.0"
+  }
+}
