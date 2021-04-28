@@ -1,12 +1,26 @@
 {
-  "name": "EN-BOT-Adventure",
-  "version": "0.1",
+  "name": "en-bot-adventure",
+  "version": "0.1.0",
   "description": "FMST 398 Gaming and Justice",
-  "author": "Isabelle, Palmer, and Reed",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/poph55/EN-BOT-Adventure"
-  },
+  "keywords": [
+    "game",
+    "bitsy",
+    "gender",
+    "racism",
+    "algorithm"
+  ],
+  "homepage": "https://github.com/poph55/EN-BOT-Adventure#README.md",
+  "contributors": [
+    {
+      "name": "Isabelle"
+    },
+    {
+      "name": "Palmer"
+    },
+    {
+      "name": "Reed"
+    }
+  ],
   "main": "gulpfile.js",
   "devDependencies": {
     "babel-preset-minify": "^0.5.1",
@@ -16,5 +30,7 @@
     "gulp-dart-sass": "^1.0.2",
     "include-media": "^1.4.9",
     "jquery": "^3.6.0"
-  }
+  },
+  "license": "UNLICENSED",
+  "private": true
 }
