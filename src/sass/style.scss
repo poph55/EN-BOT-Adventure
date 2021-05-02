@@ -1,3 +1,9 @@
+// Sizing.
+$min: 320px;
+$max: 960px;
+$gutter: 5vw;
+$box: 86;
+
 // For media queries.
 $breakpoints: (
   'xs': 500px,
@@ -14,7 +20,10 @@ $media-expressions: (
 @import './node_modules/include-media/dist/include-media';
 
 // Google Fonts.
-@import 'https://fonts.googleapis.com/css2?family=VT323&display=swap';
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Quicksand:wght@400;500&display=swap');
+
+$sansserif: 'Quicksand', 'Helvetica', 'Arial', sans-serif;
+$pixel: 'Press Start 2P', 'Courier New', monospace;
 
 // Colors.
 $black: #000;
@@ -23,21 +32,26 @@ $blue: #2332db;
 $yellow: #fbfe97;
 $pink: #ed87f0;
 
+
+
 // Base styles.
+html {
+  background-color: $blue;
+  color: $yellow;
+  font-size: 24px;
+  font-family: $sansserif;
+  line-height: 1.6;
+}
+
 body {
   display: grid;
   grid-row-gap: 1rem;
   grid-template-columns:
-    minmax(5vw, 1fr)
-    minmax(320px, 960px)
-    minmax(5vw, 1fr);
+    minmax($gutter, 1fr)
+    minmax($min, $max)
+    minmax($gutter, 1fr);
   margin: 0;
   padding: 0;
-  background-color: $blue;
-  color: $yellow;
-  font-size: 20px;
-  font-family: 'VT323', 'Courier New', monospace;
-  line-height: 1.6;
 }
 
 header,
@@ -47,26 +61,26 @@ footer {
   grid-column: 2/3;
 }
 
-main {
-  grid-row: 1/2;
-}
+main { grid-row: 1/2; }
 
 // The embed wrapper for the game.
 .embed {
   display: grid;
   align-items: center;
   justify-items: center;
+  max-width: $max;
+  max-height: $max;
   margin: 5vh auto;
   background-color: $pink;
 
   @include media( 'landscape' ) {
-    width: 86vh;
-    height: 86vh;
+    width: #{$box}vh;
+    height: #{$box}vh;
   }
 
   @include media( 'portrait' ) {
-    width: 86vw;
-    height: 86vw;
+    width: #{$box}vw;
+    height: #{$box}vw;
   }
 }
 
@@ -78,6 +92,7 @@ main {
   background-color: $black;
   color: $white;
   font: inherit;
+  font-family: $pixel;
   font-size: 40px;
 }
 
@@ -88,4 +103,12 @@ main {
   height: 100%;
   max-height: 100%;
   border: 0;
+}
+
+// The information and description area.
+h1 { font-family: $pixel; }
+
+:not( .embed ) {
+  &:first-child { margin-top: 0; }
+  &:last-child { margin-bottom: 0; }
 }
