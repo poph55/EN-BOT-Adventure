@@ -28,9 +28,9 @@ $pixel: 'Press Start 2P', 'Courier New', monospace;
 // Colors.
 $black: #000;
 $white: #fff;
-$blue: #2332db;
-$yellow: #fbfe97;
-$pink: #ed87f0;
+$blue: #214d98;
+$yellow: #fbff97;
+$pink: #ffa6da;
 
 
 
@@ -54,6 +54,17 @@ body {
   padding: 0;
 }
 
+a {
+  color: $pink;
+
+  &:hover { text-decoration: none; }
+
+  &:focus,
+  &:active {
+    outline: 2px solid $pink;
+  }
+}
+
 header,
 main,
 section,
@@ -62,6 +73,7 @@ footer {
 }
 
 main { grid-row: 1/2; }
+footer { margin-bottom: 5vh; }
 
 // The embed wrapper for the game.
 .embed {
