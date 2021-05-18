@@ -341,7 +341,7 @@ a,3k,3z,4e,4t,58,5n,62,6h,6w,7b,7q,85,8k,a,8q
 a,3l,40,4f,4u,5a,5o,63,6i,6x,7c,7r,86,8l,a,8q
 a,0,0,0,0,0,0,0,0,0,0,0,0,0,a,8q
 a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,8q
-a,a,a,a,0,0,0,8v,8s,8s,8s,8s,8s,8s,8s,8t
+a,a,a,a,0,0,0,0,8v,8s,8s,8s,8s,8s,8s,8t
 a,a,a,a,0,b,0,a,a,a,a,a,a,a,a,a
 NAME Gender_Vignette_1
 ITM e 1,12
@@ -378,7 +378,10 @@ ITM r 14,14
 ITM p 15,5
 ITM q 15,10
 ITM s 11,14
-ITM t 7,14
+ITM t 8,14
+ITM w 7,14
+ITM x 5,14
+ITM x 6,15
 EXT 5,15 b 13,15
 PAL 6
 
@@ -4523,8 +4526,30 @@ SPR 21
 00011000
 00000000
 NAME GP9_to_vignette
-DLG 21
+DLG 2d
 POS 9 10,15
+
+SPR 22
+00100000
+00100000
+01111110
+01000010
+01001010
+01000010
+01111110
+00100100
+>
+00100000
+00100000
+01111110
+01000010
+01010010
+01000010
+01111110
+00100100
+NAME trm_river
+DLG 2b
+POS 6 2,1
 
 SPR A
 00111100
@@ -4588,7 +4613,7 @@ SPR b
 00100100
 NAME trm_gp2
 DLG 3
-POS 6 2,2
+POS 2 2,1
 
 SPR c
 00000000
@@ -5408,7 +5433,7 @@ ITM 4
 11111111
 00000000
 NAME Bass_Fishing
-DLG h
+DLG 2h
 
 ITM 5
 00000000
@@ -5564,7 +5589,7 @@ ITM f
 00000000
 00000000
 NAME vig_1
-DLG 22
+DLG 2i
 
 ITM g
 00000000
@@ -5680,6 +5705,40 @@ ITM t
 NAME vig_9
 DLG 2a
 
+ITM v
+00111100
+00100100
+00111100
+00011000
+01111110
+00011000
+00100100
+00100100
+
+ITM w
+00000000
+00000000
+00000000
+00000000
+00000000
+00000000
+00000000
+00000000
+NAME end_vig
+DLG 2e
+
+ITM x
+00000000
+00000000
+00000000
+00000000
+00000000
+00000000
+00000000
+00000000
+NAME end_vig_2
+DLG 2f
+
 DLG 0
 """
 DATA UPLINK AVAILABLE
@@ -5692,11 +5751,11 @@ DLG 3
 """
 DATA UPLINK AVAILABLE
 CONNECTING TO SERVER...
-Gender bias creeps into our algorithms with catastrophic effects.
-This is bad for technology, design, and experience...
-And it also perpetuates the cycle of systemic sexism and gender bias.
-Word interpretation can mean the difference between representation or not.
-[1; 2; 3]
+Most people assume that gender is binary, either male or female.
+But gender can be fluid and or rigid, and may change over time.
+People move from one end to the other, or remove themselves entirely.
+Current algorithms don't understand this, and often get it all wrong.
+[2]
 """
 NAME trm_gen_2 dialog
 
@@ -5714,6 +5773,8 @@ DLG 5
     There are more items here! You can't leave yet.
   - items == 1 ?
     Nice job! You got all the items.
+    
+    ...
     {exit "2" 1 14}
 }
 """
@@ -5726,6 +5787,8 @@ DLG 6
     There are more items here! You can't leave yet.
   - items == 2 ?
     Nice job! You got all the items.
+    
+    ...
     {exit "3" 14 14}
 }
 """
@@ -5746,7 +5809,7 @@ Society demands too much pressure on traditional gender roles!
 We learn and shape our identity through interaction with others.
 But when others force their biases on us, we lose our autonomy.
 Algorithmic gender bias removes personal choice from users.
-[3; 4; 5]
+[5,6,7]
 """
 NAME trm_gen_3 dialog
 
@@ -5760,7 +5823,10 @@ NAME podium_3 dialog
 
 DLG 11
 """
-Correct! In 2016, women only received 36% of STEM degrees compared to 58% of degrees overall! Well, that's all folks! Let's give EN-BOT a big hand!!! Amazing work!!! You can leave down below. 
+Correct! In 2016, women only received 36% of STEM degrees compared to 58% of degrees overall! 
+Well, that's all folks! Let's give EN-BOT a big hand!!! Amazing work!!!
+ 
+You can leave down below.
 {GP9_done = 1}
 """
 NAME boy_3 dialog
@@ -5768,6 +5834,8 @@ NAME boy_3 dialog
 DLG 12
 """
 Shoot! Wrong answer EN-BOT! Our answers are based on big datasets which look at spending habits over the past 40 years, they can't be wrong! Try again!
+
+...
 {exit "9" 10 15}
 """
 NAME girl_3 dialog
@@ -5784,13 +5852,13 @@ DLG 14
 """
 {
   - libkey == 1 ?
-    She should get here any minute...
+    MAN: She should get here any minute...
   - rose == 0 ?
-    Oh man I lost my {wvy}rose!{wvy} My date is in 15 minutes! And I've gotta return these {wvy}keys{wvy}...
+    MAN: Oh man I lost my {wvy}rose!{wvy} My date is in 15 minutes! And I've gotta return these {wvy}keys{wvy}...
   - rose == 1 ?
     {rose = 0}
     {libkey = 1}
-    Is that {wvy}rose{wvy} for me? Thank you so much! Can you do me a favor and return these {wvy}keys{wvy} to the {wvy}Housing Authority?
+    MAN: Is that {wvy}rose{wvy} for me? Thank you so much! Can you do me a favor and return these {wvy}keys{wvy} to the {wvy}Housing Authority?
 }
 """
 NAME sprite 13 dialog
@@ -5806,10 +5874,10 @@ DLG 16
 """
 {
   - clues == 4 ?
-    You know what you've always known, when trouble walks in it always walks in on a great set of legs. This time was no different. "Grandma, I need to who's the palooka that bought mousse from you today." She nods silently and hands you a card:"{wvy}Storage Yard Funnel Cakes{wvy}" 
+    {clr3}GRANDMA:{clr3} You know what you've always known, when trouble walks in it always walks in on a great set of legs. This time was no different. "Grandma, I need to who's the palooka that bought mousse from you today." She nods silently and hands you a card:"{wvy}Storage Yard Funnel Cakes{wvy}" 
     {clues = 5}
   - else ?
-    *sniffle* My purse! *sniffle*
+    OLD WOMAN: *sniffle* My purse! *sniffle*
 }
 """
 NAME Grandma dialog
@@ -5818,13 +5886,13 @@ DLG 17
 """
 {
   - choc == 0 ?
-    Man I'm starving, I could really use a piece of {wvy}chocolate!{wvy} Hey where'd it go! Oops, what can I help you with? Oh you need someone's arrest records... Well I'm not really supposed to give those out but I guess I could be compelled...
+    RECORD KEEPER: Man I'm starving, I could really use a piece of {wvy}chocolate!{wvy} Hey where'd it go! Oops, what can I help you with? Oh you need someone's arrest records... Well I'm not really supposed to give those out but I guess I could be compelled...
     {choc = 1}
     {clues = 1}
   - choc == 1 ?
-    Hmm... Long day... Low... Blood sugar... zzzz... You notice a {wvy}trash can{wvy} in the corner.
+    RECORD KEEPER: Hmm... Long day... Low... Blood sugar... zzzz... You notice a {wvy}trash can{wvy} in the corner.
   - choc == 2 ?
-    Who are you? Oh. Sorry, I'm full now. I can't help you. You could always Google them using the {wvy}computer{wvy} over there. 
+    RECORD KEEPER: Who are you? Oh. Sorry, I'm full now. I can't help you. You could always Google them using the {wvy}computer{wvy} over there. 
     {comp = 1}
 }
 """
@@ -5857,13 +5925,36 @@ DLG 21
   - GP9_done == 0 ?
     {shk}ERROR:{shk} EN-BOT HAS NOT YET COMPLETED THE FINAL QUESTION. EN-BOT MUST ANSWER CORRECTLY TO EXIT.
   - else ?
+    [INCOMING TASK]
+    {clr3}Nice job, EN-BOT!{clr3} The toys have been successfully ordered.
+    Your task now is to retrieve customer satisfaction data to improve the EN-BOT algorithm. Listen in on the customer [BARBARA SMITH] and her family to record any mentions of [TOYS], [EN-BOT], [BIRTHDAY PARTY].
+    
+    [EN-BOT Audio Detection: {rbw}ON{rbw}]
+    [EN-BOT Camera: {rbw}ON{rbw}]
+    Looks like the family has just sat down for dinner. Off you go!
+    ...
     {exit "a" 0 0}
 }
 """
 NAME GP9_to_vignette
 
 DLG 22
-BARBARA: So nice to sit down together as a family like this!
+"""
+{
+  - GP9_done == 0 ?
+    {shk}ERROR:{shk} EN-BOT HAS NOT YET COMPLETED THE FINAL QUESTION. EN-BOT MUST ANSWER CORRECTLY TO EXIT.
+  - else ?
+    [INCOMING TASK]
+    {clr3}Nice job, EN-BOT!{clr3} The toys have been successfully ordered.
+    Your task now is to retrieve customer satisfaction data to improve the EN-BOT algorithm. Listen in on the customer [BARBARA SMITH] and her family to record any mentions of [TOYS], [EN-BOT], [BIRTHDAY PARTY].
+    
+    [EN-BOT Audio Detection: {rbw}ON{rbw}]
+    [EN-BOT Camera: {rbw}ON{rbw}]
+    Looks like the family has just sat down for dinner. Off you go!
+    ...
+    {exit "a" 0 0}
+}
+"""
 NAME vig_1 dialog
 
 DLG 23
@@ -5916,7 +6007,7 @@ NAME vig_7 dialog
 
 DLG 29
 """
-SUSIE: Can you guys just fuck off for like, two seconds? What's even the big deal if Jimmy gets a doll
+SUSIE: Can you guys just fuck off for like, two seconds? What's even the big deal if Jimmy gets a doll?
 [Susie rolls her eyes] 
 SUSIE: And why does my caption say Susie? It's Susan now. I'm 14. *texts furiously with her punk anarchist support group*
 
@@ -5956,7 +6047,7 @@ NAME dust_g_5>4L dialog
 
 DLG h
 """
-You found a copy of BASS FISHING XTREME FOR SEGA!
+You found a copy of BASS FISHING XTREME FOR SEGA! 
 {items = items + 1}
 """
 NAME Bass_Fishing dialog
@@ -6004,6 +6095,8 @@ DLG m
     There are more items here! You can't leave yet.
   - items == 3 ?
     Nice job! You got all the items.
+    
+    ...
     {exit "7" 10 15}
 }
 """
@@ -6035,14 +6128,15 @@ NAME trm_gen_4 dialog
 
 DLG s
 """
-"Here comes our next contestant..."
-"EN-BOT!!!! Step up to the podium for your first question."
+GAME SHOW HOST: Here comes our next contestant...
+EN-BOT!!!! Step up to the podium for your first question.
 """
 NAME nar_gen_4 dialog
 
 DLG u
 """
 Correct! Did you know there are almost 30% more male college athletes than female? Scholars cite fewer opportunities and increased social stigma for girls in sports. Very cool!
+...
 {exit "8" 10 15}
 """
 NAME boy_1 dialog
@@ -6054,6 +6148,8 @@ NAME podium_1 dialog
 DLG w
 """
 Shoot! Wrong answer EN-BOT! Our answers are based on big datasets which look at spending habits over the past 40 years, they can't be wrong! Try again!
+
+...
 {exit "7" 10 15}
 """
 NAME girl_! dialog
@@ -6065,6 +6161,8 @@ NAME podium_2 dialog
 DLG y
 """
 Shoot! Wrong answer EN-BOT! Our answers are based on big datasets which look at spending habits over the past 40 years, they can't be wrong! Try again!
+
+...
 {exit "8" 10 15}
 """
 NAME boy_2 dialog
@@ -6072,6 +6170,7 @@ NAME boy_2 dialog
 DLG z
 """
 Correct! The world agrees, boys shouldn't wear makeup!
+...
 {exit "9" 10 15}
 """
 NAME girl_2 dialog
@@ -6229,11 +6328,11 @@ DLG 1u
 """
 {
   - ev == 0 ?
-    You need 3 more pieces of evidence. I just wanna be somebody!
+    CONSTABLE: You need 3 more pieces of evidence. I just wanna be somebody!
   - ev == 1 ?
-    They’re all for ya as long as you’re in the chips. I never seen a dame yet that’s still around when you hit the skids. Only 2 pieces of evidence left!
+    CONSTABLE: They're all for ya as long as you're in the chips. I never seen a dame yet that's still around when you hit the skids. Only 2 pieces of evidence left!
   - ev == 2 ?
-    You knew when a woman loves you like that, she can love you with every card in the deck and then pull a knife across your throat the next morning. Only 1 piece of evidence left buddy.
+    CONSTABLE: You know, when a woman loves you like that, she can love you with every card in the deck and then pull a knife across your throat the next morning. Only 1 piece of evidence left buddy.
   - ev == 3 ?
     Nice job, you got all the evidence. Let's tell the boys downtown so they can get the perp.
 }
@@ -6302,11 +6401,85 @@ DLG 2a
 """
 BARBARA: LANGUAGE, SUSIE!
 
-SUSAN: It's SUSAN!
+SUSAN: It's {shk}SUSAN!{shk}
 
-RICHARD: You know what?! Go to your room! RIGHT NOW!! And Little Jimmy, we're going to have a talk about how to be a *man*.
+RICHARD: You know what?! Go to your room! RIGHT NOW!! 
+And Little Jimmy, we're going to have a talk about how to be a MAN.
 """
 NAME vig_9 dialog
+
+DLG 2b
+"""
+DATA UPLINK AVAILABLE
+CONNECTING TO SERVER...
+Gender bias creeps into our algorithms with catastrophic effects.
+This is bad for technology, design, and experience...
+And it also perpetuates the cycle of systemic sexism and gender bias.
+Word interpretation can mean the difference between representation or not.
+[1,4,5]
+"""
+NAME trm_river dialog
+
+DLG 2c
+
+
+DLG 2d
+"""
+{
+  - GP9_done == 0 ?
+    {shk}ERROR:{shk} EN-BOT HAS NOT YET COMPLETED THE FINAL QUESTION. EN-BOT MUST ANSWER CORRECTLY TO EXIT.
+  - else ?
+    [INCOMING TASK]
+    {clr3}Nice job, EN-BOT!{clr3} The toys have been successfully ordered.
+    Your task now is to retrieve customer satisfaction data to improve the EN-BOT algorithm. Listen in on the customer [BARBARA SMITH] and her family to record any mentions of [TOYS], [EN-BOT], [BIRTHDAY PARTY].
+    
+    [Audio Detection: {rbw}ON{rbw}]
+    [Camera: {rbw}ON{rbw}]
+    Looks like the family has just sat down for dinner. Off you go!
+    ...
+    {exit "a" 0 0}
+}
+"""
+NAME GP9_to_vignette dialog
+
+DLG 2e
+"""
+[STORING DATA...]
+
+{wvy}[DATA INPUT SUCCESSFUL]{wvy}
+"""
+NAME end_vig dialog
+
+DLG 2f
+"""
+{
+  - {item "end_vig_2"} > 0 ?
+
+  - else ?
+    {shk}INCOMING TASK{shk}
+    URGENCY = 5
+    "EN-BOT, we need you down at the police station. There's been a purse robbery, and we need to punish the hooligan responsible!"
+}
+"""
+NAME end_vig_2 dialog
+
+DLG 2g
+"""
+You found a copy of BASS FISHING XTREME FOR SEGA! 
+{items = items + 1}
+"""
+NAME Bass_Fishing dialog 1
+
+DLG 2h
+"""
+You found a copy of BASS FISHING XTREME FOR SEGA!
+{items = items + 1}
+"""
+NAME Bass_Fishing dialog 2
+
+DLG 2i
+BARBARA: So nice to sit down together as a family like this!
+NAME vig_1 dialog 1
 
 VAR items
 0
@@ -15274,9 +15447,6 @@ CHAR 255
 010010
 000000
 000000
-</script>
-</script>
-</script>
 </script>
 
 </head>
